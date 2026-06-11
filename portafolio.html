@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio |UkuPacha</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .port-hero{padding:50px 2rem;text-align:center;border-bottom:1px solid var(--borde)}.port-hero h1{font-size:40px;font-weight:900;letter-spacing:-1.5px;margin-bottom:12px}.port-hero h1 span{color:var(--naranja)}.port-hero p{font-size:15px;color:var(--texto);max-width:500px;margin:0 auto}
+    .filtros{display:flex;gap:10px;justify-content:center;padding:2rem;flex-wrap:wrap}.filtro-btn{background:var(--oscuro2);border:1px solid var(--borde);color:rgba(255,255,255,0.6);padding:8px 18px;border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.2s}.filtro-btn:hover,.filtro-btn.active{background:var(--naranja);border-color:var(--naranja);color:#fff}
+    .portafolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin:0 auto;padding:0 2rem 4rem}
+    .port-item{background:var(--oscuro2);border-radius:10px;overflow:hidden;border:1px solid var(--borde);transition:transform 0.2s}.port-item:hover{transform:translateY(-4px)}
+    .port-img{height:220px;display:flex;align-items:center;justify-content:center;background:var(--oscuro3);position:relative;overflow:hidden}.port-img img{width:100%;height:100%;object-fit:cover}.port-img-placeholder{text-align:center;color:var(--texto)}.port-img-placeholder i{font-size:36px;color:var(--naranja);margin-bottom:8px;display:block}
+    .port-info{padding:16px}.port-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--naranja);margin-bottom:6px}.port-info h3{font-size:15px;font-weight:700;margin-bottom:4px}.port-info p{font-size:12px;color:var(--texto)}
+    .port-cta{background:var(--naranja);padding:3rem 2rem;text-align:center}.port-cta h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px}.port-cta p{color:rgba(255,255,255,0.8);margin-bottom:20px}.btn-white{background:#fff;color:var(--naranja);padding:13px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html"><img src="img/logo.png" alt="Uku Pacha Diseño y Publicidad" style="height:100px;width:auto;object-fit:contain"/></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="portafolio.html" style="color:var(--naranja)">Portafolio</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <a href="index.html#contacto" class="btn-primary">Solicitar Cotización</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="port-hero">
+    <div class="badge">Nuestros trabajos</div>
+    <h1>Portafolio de <span>Proyectos</span></h1>
+    <p>Más de 2,000 proyectos realizados para empresas de todos los tamaños en Lima y todo el Perú.</p>
+  </section>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <button class="filtro-btn active" data-filtro="todos">Todos</button>
+    <button class="filtro-btn" data-filtro="vinilos">Vinilos</button>
+    <button class="filtro-btn" data-filtro="banners">Banners</button>
+    <button class="filtro-btn" data-filtro="mural">Murales</button>
+    <button class="filtro-btn" data-filtro="vehicular">Vehicular</button>
+    <button class="filtro-btn" data-filtro="senaletica">Señalética</button>
+  </div>
+
+  <!-- GRID PORTAFOLIO -->
+  <div class="portafolio-grid">
+    <div class="port-item" data-categoria="mural">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-building"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Mural</div><h3>Mural exterior Supermercado</h3><p>40m² · Lima, Perú</p></div>
+    </div>
+    <div class="port-item" data-categoria="vinilos">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-layer-group"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Vinilo</div><h3>Vitrina Banca Financiera</h3><p>15m² · Miraflores, Lima</p></div>
+    </div>
+    <div class="port-item" data-categoria="banners">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-flag"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Banner</div><h3>Banner evento corporativo</h3><p>3x2m · San Isidro, Lima</p></div>
+    </div>
+    <div class="port-item" data-categoria="vehicular">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-car"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Vehicular</div><h3>Flota de 15 vehículos</h3><p>Empresa logística · Lima</p></div>
+    </div>
+    <div class="port-item" data-categoria="senaletica">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-signs-post"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Señalética</div><h3>Señalética industrial completa</h3><p>Planta industrial · Callao</p></div>
+    </div>
+    <div class="port-item" data-categoria="vinilos">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-layer-group"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Vinilo</div><h3>Decoración piso retail</h3><p>Centro comercial · Surco</p></div>
+    </div>
+    <div class="port-item" data-categoria="mural">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-building"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Mural</div><h3>Mural artístico restaurante</h3><p>25m² · Barranco, Lima</p></div>
+    </div>
+    <div class="port-item" data-categoria="banners">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-flag"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Banner</div><h3>Lonas feria inmobiliaria</h3><p>Feria · La Molina, Lima</p></div>
+    </div>
+    <div class="port-item" data-categoria="senaletica">
+      <div class="port-img"><div class="port-img-placeholder"><i class="fa-solid fa-signs-post"></i><p>Foto real del proyecto</p></div></div>
+      <div class="port-info"><div class="port-tag">Señalética</div><h3>Rótulos corporativos oficina</h3><p>Torre empresarial · San Isidro</p></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="port-cta">
+    <h2>¿Tu proyecto podría estar aquí?</h2>
+    <p>Contáctanos hoy y hagamos realidad tu próxima campaña publicitaria.</p>
+    <a href="index.html#contacto" class="btn-white">Solicitar Cotización Gratis</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand"><img src="img/logo.png" alt="Uku Pacha Diseño y Publicidad" style="height:48px;width:auto;object-fit:contain"/><p>Empresa de publicidad física con más de 12 años de experiencia.</p></div>
+      <div class="footer-links"><h4>Servicios</h4><ul><li>Vinilos adhesivos</li><li>Banners y lonas</li><li>Publicidad mural</li><li>Gran formato</li></ul></div>
+      <div class="footer-contacto"><h4>Contacto</h4><p><i class="fa-solid fa-phone"></i> (01) 234-5678</p><p><i class="fa-solid fa-envelope"></i> hola@impactprint.com</p><p><i class="fa-solid fa-location-dot"></i> Lima, Perú</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 UkuPacha. Todos los derechos reservados.</p></div>
+  </footer>
+
+  <script>
+    const filtros = document.querySelectorAll('.filtro-btn');
+    const items = document.querySelectorAll('.port-item');
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filtros.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filtro = btn.dataset.filtro;
+        items.forEach(item => {
+          if (filtro === 'todos' || item.dataset.categoria === filtro) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
