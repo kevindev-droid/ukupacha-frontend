@@ -1,7 +1,7 @@
 // CONFIGURACIÓN — URL de la API
 const API_URL = window.location.hostname === 'localhost' 
   ? 'http://localhost:3000/api' 
-  : 'https://tu-dominio.com/api'; // Cambiar cuando publiques
+  : 'https://ukupacha-backend-production.up.railway.app/api';
 
 const sliderData = [
   {
