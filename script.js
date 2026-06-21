@@ -1,3 +1,8 @@
+// CONFIGURACIÓN — URL de la API
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:3000/api' 
+  : 'https://tu-dominio.com/api'; // Cambiar cuando publiques
+
 const sliderData = [
   {
     title:[{text:'Tu marca,',orange:false},{text:'visible',orange:true},{text:'donde más importa.',orange:false}],
@@ -12,7 +17,7 @@ const sliderData = [
     sub:'Murales publicitarios de alto impacto en las zonas de mayor tráfico de la ciudad.'
   },
   {
-    title:[{text:'Tu flota, tu mejor',orange:false},{text:'publicidad',orange:true},{text:'vehicular.',orange:false}],
+    title:[{text:'Tu flota, tu mejor',orange:false},{text:'publicidad',orange:true},{text:'móvil.',orange:false}],
     sub:'Convierte tus vehículos en herramientas publicitarias que recorren la ciudad las 24 horas.'
   }
 ];
@@ -99,29 +104,84 @@ function initSlider() {
 buildSlides();
 initSlider();
 
-
+// FORMULARIO CON VALIDACIÓN Y RATE LIMITING
 const btn = document.getElementById('btn-enviar');
 const mensaje = document.getElementById('form-mensaje');
 
+// Rate limiting — evitar clicks múltiples
+let enviando = false;
+let ultimoEnvio = 0;
+const DELAY_ENVIO = 3000; // 3 segundos entre envíos
+
+// Validadores
+function validarEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validarTelefono(telefono) {
+  return /^[0-9+\s\-]{7,20}$/.test(telefono);
+}
+
+function mostrarError(texto) {
+  mensaje.className = 'form-mensaje error';
+  mensaje.textContent = texto;
+  mensaje.classList.remove('oculto');
+}
+
+function mostrarExito(texto) {
+  mensaje.className = 'form-mensaje exito';
+  mensaje.textContent = texto;
+  mensaje.classList.remove('oculto');
+}
+
 btn.addEventListener('click', async () => {
+  // Rate limiting
+  const ahora = Date.now();
+  if (enviando || ahora - ultimoEnvio < DELAY_ENVIO) {
+    mostrarError('Por favor espera unos segundos antes de intentar nuevamente.');
+    return;
+  }
+
   const nombre = document.getElementById('nombre').value.trim();
   const telefono = document.getElementById('telefono').value.trim();
   const correo = document.getElementById('correo').value.trim();
   const servicio = document.getElementById('servicio').value;
   const mensajeTexto = document.getElementById('mensaje').value.trim();
 
+  // Validación de campos obligatorios
   if (!nombre || !telefono || !correo || !servicio) {
-    mensaje.className = 'form-mensaje error';
-    mensaje.textContent = 'Por favor completa todos los campos obligatorios.';
-    mensaje.classList.remove('oculto');
+    mostrarError('Por favor completa todos los campos obligatorios.');
     return;
   }
 
+  // Validación de formato
+  if (nombre.length < 2 || nombre.length > 100) {
+    mostrarError('El nombre debe tener entre 2 y 100 caracteres.');
+    return;
+  }
+
+  if (!validarTelefono(telefono)) {
+    mostrarError('El teléfono no es válido. Usa solo números, +, - y espacios.');
+    return;
+  }
+
+  if (!validarEmail(correo)) {
+    mostrarError('El correo electrónico no es válido.');
+    return;
+  }
+
+  if (mensajeTexto.length > 500) {
+    mostrarError('El mensaje no puede superar 500 caracteres.');
+    return;
+  }
+
+  enviando = true;
+  ultimoEnvio = ahora;
   btn.textContent = 'Enviando...';
   btn.disabled = true;
 
   try {
-    const response = await fetch('http://localhost:3000/api/cotizaciones', {
+    const response = await fetch(`${API_URL}/cotizaciones`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nombre, telefono, correo, servicio, mensaje: mensajeTexto })
@@ -130,10 +190,9 @@ btn.addEventListener('click', async () => {
     const data = await response.json();
 
     if (response.ok) {
-      mensaje.className = 'form-mensaje exito';
-      mensaje.textContent = '¡Cotización enviada! Nos pondremos en contacto contigo pronto.';
-      mensaje.classList.remove('oculto');
+      mostrarExito('¡Cotización enviada! Nos pondremos en contacto contigo pronto.');
 
+      // Limpiar formulario
       document.getElementById('nombre').value = '';
       document.getElementById('telefono').value = '';
       document.getElementById('correo').value = '';
@@ -145,21 +204,21 @@ btn.addEventListener('click', async () => {
       }, 1500);
 
     } else {
-      throw new Error(data.error);
+      // No exponer errores del servidor, mostrar genérico
+      mostrarError('No pudimos procesar tu solicitud. Intenta nuevamente.');
     }
 
   } catch (error) {
-    mensaje.className = 'form-mensaje error';
-    mensaje.textContent = 'Ocurrió un error al enviar. Intenta nuevamente.';
-    mensaje.classList.remove('oculto');
+    console.error('Error:', error);
+    mostrarError('Error de conexión. Verifica tu internet e intenta nuevamente.');
   } finally {
+    enviando = false;
     btn.textContent = 'Enviar Cotización';
     btn.disabled = false;
   }
 });
 
-
-
+// PROCESO CON MONITO SALTARÍN
 function initProceso() {
   const wrap = document.querySelector('.proceso');
   const monito = document.getElementById('monito');

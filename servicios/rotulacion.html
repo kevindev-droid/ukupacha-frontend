@@ -7,7 +7,13 @@
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    .servicio-hero{padding:60px 2rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.servicio-hero h1{font-size:42px;font-weight:900;letter-spacing:-1.5px;margin-bottom:16px}.servicio-hero h1 span{color:var(--naranja)}.servicio-hero p{font-size:15px;color:var(--texto);line-height:1.8;margin-bottom:24px}.servicio-img{background:var(--oscuro2);border-radius:12px;height:320px;display:flex;align-items:center;justify-content:center;border:1px solid var(--borde)}.img-placeholder{text-align:center;color:var(--texto)}.img-placeholder i{font-size:48px;color:var(--naranja);margin-bottom:12px;display:block}.caracteristicas{padding:3rem 2rem;background:var(--oscuro3)}.caracteristicas h2{font-size:24px;font-weight:800;margin-bottom:1.5rem;text-align:center}.caract-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:0 auto}.caract-item{background:var(--oscuro2);border-radius:8px;padding:20px;border:1px solid var(--borde);text-align:center}.caract-item i{font-size:24px;color:var(--naranja);margin-bottom:10px;display:block}.caract-item h4{font-size:14px;font-weight:700;margin-bottom:6px}.caract-item p{font-size:12px;color:var(--texto);line-height:1.6}.galeria{padding:3rem 2rem;background:var(--oscuro)}.galeria h2{font-size:24px;font-weight:800;margin-bottom:1.5rem;text-align:center}.galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto}.galeria-item{background:var(--oscuro2);border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--borde);color:var(--texto);font-size:13px;text-align:center}.cta-servicio{padding:3rem 2rem;background:var(--naranja);text-align:center}.cta-servicio h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px}.cta-servicio p{color:rgba(255,255,255,0.8);margin-bottom:20px}.btn-white{background:#fff;color:var(--naranja);padding:13px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block}.breadcrumb{padding:1rem 2rem;font-size:13px;color:var(--texto);border-bottom:1px solid var(--borde)}.breadcrumb a{color:var(--naranja);text-decoration:none}
+    .servicio-hero{padding:60px 2rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.servicio-hero h1{font-size:42px;font-weight:900;letter-spacing:-1.5px;margin-bottom:16px}.servicio-hero h1 span{color:var(--naranja)}.servicio-hero p{font-size:15px;color:var(--texto);line-height:1.8;margin-bottom:24px}.servicio-img{background:var(--oscuro2);border-radius:12px;height:400px;overflow: hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--borde)}.img-placeholder{text-align:center;color:var(--texto)}.img-placeholder i{font-size:48px;color:var(--naranja);margin-bottom:12px;display:block}.caracteristicas{padding:3rem 2rem;background:var(--oscuro3)}.caracteristicas h2{font-size:24px;font-weight:800;margin-bottom:1.5rem;text-align:center}.caract-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:0 auto}.caract-item{background:var(--oscuro2);border-radius:8px;padding:20px;border:1px solid var(--borde);text-align:center}.caract-item i{font-size:24px;color:var(--naranja);margin-bottom:10px;display:block}.caract-item h4{font-size:14px;font-weight:700;margin-bottom:6px}.caract-item p{font-size:12px;color:var(--texto);line-height:1.6}.galeria{padding:3rem 2rem;background:var(--oscuro)}.galeria h2{font-size:24px;font-weight:800;margin-bottom:1.5rem;text-align:center}.galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto}.galeria-item{background:var(--oscuro2);border-radius:8px;height:200px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--borde);color:var(--texto);font-size:13px;text-align:center}.cta-servicio{padding:3rem 2rem;background:var(--naranja);text-align:center}.cta-servicio h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px}.cta-servicio p{color:rgba(255,255,255,0.8);margin-bottom:20px}.btn-white{background:#fff;color:var(--naranja);padding:13px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;display:inline-block}.breadcrumb{padding:1rem 2rem;font-size:13px;color:var(--texto);border-bottom:1px solid var(--borde)}.breadcrumb a{color:var(--naranja);text-decoration:none}.servicio-img video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
   </style>
 </head>
 <body>
@@ -36,8 +42,9 @@
     </div>
     <div class="servicio-img">
       <div class="img-placeholder">
-        <i class="fa-solid fa-car"></i>
-        <p>Imagen del servicio<br><small>Se reemplaza con foto real</small></p>
+        <div class="servicio-img">
+  <video src="../img/pegado-auto.mp4" autoplay muted loop playsinline></video>
+</div>
       </div>
     </div>
   </section>
@@ -52,6 +59,8 @@
       <div class="caract-item"><i class="fa-solid fa-rotate-left"></i><h4>Removible</h4><p>Se retira sin dañar la pintura original cuando quieras actualizar tu imagen corporativa.</p></div>
     </div>
   </section>
+
+  <!--
   <section class="galeria">
     <h2>Trabajos realizados</h2>
     <div class="galeria-grid">
@@ -63,6 +72,7 @@
       <div class="galeria-item"><p>📷 Foto trabajo 6<br><small>Agregar imagen real</small></p></div>
     </div>
   </section>
+-->
   <section class="cta-servicio">
     <h2>¿Quieres tu flota rotulada?</h2>
     <p>Contáctanos hoy y recibe una cotización sin costo en menos de 2 horas.</p>
@@ -72,7 +82,7 @@
     <div class="footer-content">
       <div class="footer-brand"><img src="../img/logo.png" alt="Uku Pacha Diseño y Publicidad" style="height:100px;width:auto;object-fit:contain"/><p>Empresa de publicidad física con más de 12 años de experiencia.</p></div>
       <div class="footer-links"><h4>Servicios</h4><ul><li>Vinilos adhesivos</li><li>Banners y lonas</li><li>Publicidad mural</li><li>Gran formato</li></ul></div>
-      <div class="footer-contacto"><h4>Contacto</h4><p><i class="fa-solid fa-phone"></i> (01) 234-5678</p><p><i class="fa-solid fa-envelope"></i> hola@impactprint.com</p><p><i class="fa-solid fa-location-dot"></i> Lima, Perú</p></div>
+      <div class="footer-contacto"><h4>Contacto</h4><p><i class="fa-solid fa-phone"></i> +51 913 443 858</p><p><i class="fa-solid fa-envelope"></i> hola@impactprint.com</p><p><i class="fa-solid fa-location-dot"></i> Lima, Perú</p></div>
     </div>
     <div class="footer-bottom"><p>© 2026 UkuPacha. Todos los derechos reservados.</p></div>
   </footer>

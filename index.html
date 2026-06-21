@@ -7,9 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+  });
+</script>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV 
   <nav class="navbar">
     <a href="index.html"><img src="img/logo.png" alt="Uku Pacha Diseño y Publicidad" style="height:100px;width:auto;object-fit:contain"/></a>
     <ul class="nav-links">
@@ -22,10 +32,38 @@
     <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
   </nav>
 
+  -->
+
+  <!-- NAV -->
+<nav class="navbar">
+  <a href="index.html"><img src="img/logo.png" alt="Uku Pacha Diseño y Publicidad" style="height:100px;width:auto;object-fit:contain"/></a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="portafolio.html">Portafolio</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li class="nav-cta-mobile"><a href="#contacto" class="btn-primary">Solicitar Cotización</a></li>
+  </ul>
+
+  <a href="#contacto" class="btn-primary nav-cta-desktop">Solicitar Cotización</a>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
   <!-- HERO -->
  <!-- HERO CAROUSEL -->
 <section id="inicio">
   <div class="hero-slider">
+   <!-- VIDEO DE FONDO FIJO -->
+    <div class="hero-video-bg">
+      <video src="img/proceso.mp4" autoplay muted loop playsinline></video>
+    </div> 
 
     <div class="slide active" id="slide-0">
       <div class="slide-bg"><div class="slide-bg-inner bg1"></div></div>
@@ -114,7 +152,7 @@
     <div class="servicios-grid">
     <a href="servicios/vinilos.html" class="servicio-card featured">
         <i class="fa-solid fa-layer-group"></i>
-        <h3>Vinilos Adhesivos</h3>
+        <h3>Viniles Adhesivos</h3>
         <p>Vinilos para vitrinas, pisos, paredes y automóviles. Alta durabilidad y colores vivos.</p>
          <span class="ver-mas">Ver más →</span>
     </a>
@@ -144,7 +182,7 @@
     </a>
     <a href="servicios/senaletica.html" class="servicio-card featured">
         <i class="fa-solid fa-layer-group"></i>
-        <h3>Señalética y Rótulos</h3>
+        <h3>Corte Laser y Señaleticas</h3>
         <p>Señales interiores y exteriores, directorios, identificación de áreas y rótulos de locales.</p>
         <span class="ver-mas">Ver más →</span>
     </a>
@@ -158,18 +196,24 @@
   <div class="clientes-label">Empresas que confían en nosotros</div>
   <div class="clientes-track-wrapper">
     <div class="clientes-track">
-      <div class="cliente-item"><img src="img/D_Onofrio_logo.png" alt="D'Onofrio"/></div>
-      <div class="cliente-item"><img src="img/Samsung_logo_blue.png" alt="Samsung"/></div>
-      <div class="cliente-item"><img src="img/Repsol_logo.png" alt="Repsol"/></div>
-      <div class="cliente-item"><img src="img/Nestlé.png" alt="Nestlé"/></div>
-      <div class="cliente-item"><img src="img/backus.png" alt="Backus"/></div>
-      <div class="cliente-item"><img src="img/gloria.png" alt="Gloria"/></div>
-      <div class="cliente-item"><img src="img/D_Onofrio_logo.png" alt="D'Onofrio"/></div>
-      <div class="cliente-item"><img src="img/Samsung_logo_blue.png" alt="Samsung"/></div>
-      <div class="cliente-item"><img src="img/Repsol_logo.png" alt="Repsol"/></div>
-      <div class="cliente-item"><img src="img/Nestlé.png" alt="Nestlé"/></div>
-      <div class="cliente-item"><img src="img/backus.png" alt="Backus"/></div>
-      <div class="cliente-item"><img src="img/gloria.png" alt="Gloria"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="D'Onofrio"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="danafria"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="D'Onofrio"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="danafria"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="danafria"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
+      <div class="cliente-item"><img src="img/danafria.png" alt="danafria"/></div>
+      <div class="cliente-item"><img src="img/sweetcream.png" alt="SC"/></div>
+      <div class="cliente-item"><img src="img/LOGO-mogul.png" alt="Mogul"/></div>
     </div>
   </div>
 </section>
@@ -184,7 +228,7 @@
   <div class="proceso-container">
     <div class="mono-container">
       <div class="monito" id="monito">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!--<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="55" r="28" fill="#c8845a"/>
           <circle cx="22" cy="52" r="10" fill="#c8845a"/>
           <circle cx="78" cy="52" r="10" fill="#c8845a"/>
@@ -203,7 +247,7 @@
           <ellipse cx="50" cy="64" rx="14" ry="10" fill="#a06040"/>
           <path d="M40 63 Q50 73 60 63" stroke="#2a1a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="50" cy="59" rx="4" ry="3" fill="#2a1a0a"/>
-        </svg>
+        </svg>-->
       </div>
     </div>
     <div class="paso-connector"></div>
@@ -288,7 +332,7 @@
       </div>
       <div class="footer-contacto">
         <h4>Contacto</h4>
-        <p><i class="fa-solid fa-phone"></i> (01) 234-5678</p>
+        <p><i class="fa-solid fa-phone"></i> +51 913 443 858</p>
         <p><i class="fa-solid fa-envelope"></i> hola@impactprint.com</p>
         <p><i class="fa-solid fa-location-dot"></i> Lima, Perú</p>
       </div>
