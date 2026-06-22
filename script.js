@@ -291,10 +291,14 @@ function initCotizacionForm() {
       });
 
       if (data.whatsappUrl) {
-        setTimeout(() => {
-          window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
-        }, 1200);
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (isMobile) {
+        window.location.href = data.whatsappUrl;
+      } else {
+      window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
       }
+    }
     } catch (error) {
       console.error('Error enviando cotización:', error);
       setFeedback(feedback, 'error', 'Error de conexión. Verifica tu internet e intenta nuevamente.');
